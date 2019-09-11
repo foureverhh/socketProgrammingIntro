@@ -42,7 +42,7 @@ public class Server {
             }
             //接收到了客户端的信息
             String requestInfo = message.toString().trim();
-            System.out.println("Message from client is: "+requestInfo);
+            System.out.println(requestInfo);
         } catch (IOException e) {
             e.printStackTrace();
         }

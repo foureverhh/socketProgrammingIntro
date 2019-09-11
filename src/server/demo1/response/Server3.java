@@ -42,7 +42,7 @@ public class Server3 {
 
                 //接收到了客户端的request
                 String requestInfo = new String(data,0,load).trim();
-                System.out.println("Message from client is: "+requestInfo);
+                System.out.println(requestInfo);
 
                 //Give client response
                 StringBuilder responseContent = new StringBuilder();
