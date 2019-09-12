@@ -1,4 +1,4 @@
-package server.demo1.capsuleRequest;
+package server.demo1.servletSample.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
