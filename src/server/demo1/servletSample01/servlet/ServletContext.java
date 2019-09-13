@@ -8,8 +8,8 @@ import java.util.Map;
 * */
 public class ServletContext {
     //give each servlet an alias name
-    //<login,loginServlet>
-    private Map<String,Servlet> servlet;
+    //<login,loginServlet>  --> <login,server.demo1.servletSample01.servlet.login.LogInServlet >
+    private Map<String,String> servlet;
     //<url,login>
     private Map<String,String> mapping;
 
@@ -18,7 +18,7 @@ public class ServletContext {
         mapping = new HashMap<>();
     }
 
-    public Map<String, Servlet> getServlet() {
+    public Map<String, String> getServlet() {
         return servlet;
     }
 
@@ -26,8 +26,8 @@ public class ServletContext {
         return mapping;
     }
 
-    public void setServlet(Map<String, Servlet> servlet) {
-        this.servlet = servlet;
+    public void setServlet(Map<String, String> servlet) {
+        this.servlet = servlet ;
     }
 
     public void setMapping(Map<String, String> mapping) {
