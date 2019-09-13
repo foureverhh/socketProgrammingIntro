@@ -1,8 +1,8 @@
-package server.demo1.servletSample;
+package server.demo1.servletSample01;
 
 
 
-import server.demo1.servletSample.servlet.Dispatcher;
+import server.demo1.servletSample01.servlet.Dispatcher;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -13,25 +13,24 @@ public class Server {
     private ServerSocket server;
     private boolean isShutDown = false;
 
-        public static void main(String[] args) throws IOException {
-            Server server = new Server();
-            server.start();
-        }
+    public static void main(String[] args) throws IOException {
+        Server server = new Server();
+        server.start(8888);
+    }
 
-        //Start server
-        public void start(){
-            try {
-                start(8888);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    //Start server
+    public void start(){
+        try {
+            start(8888);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
     //Start server
     public void start(int port) throws IOException {
         try {
             server = new ServerSocket(port);
-
             this.receive();
         } catch (IOException e) {
             stop();
@@ -39,7 +38,7 @@ public class Server {
     }
         //Receive client
         private void receive(){
-            try {
+            try{
                 while(!isShutDown){
                     Socket client = server.accept();
                     Dispatcher dispatcher = new Dispatcher(client);

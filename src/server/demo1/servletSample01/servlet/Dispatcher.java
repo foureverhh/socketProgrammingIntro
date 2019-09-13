@@ -1,10 +1,11 @@
-package server.demo1.servletSample.servlet;
+package server.demo1.servletSample01.servlet;
+
+import server.demo1.servletSample01.WebApp;
+import server.demo1.servletSample01.utils.Request;
+import server.demo1.servletSample01.utils.Response;
 
 import java.io.IOException;
 import java.net.Socket;
-
-import server.demo1.servletSample.utils.Request;
-import server.demo1.servletSample.utils.Response;
 
 /*
 * One request and one response become one instance
@@ -22,19 +23,29 @@ public class Dispatcher implements Runnable{
             this.res = new Response(client.getOutputStream());
         } catch (IOException e) {
             code = 500;
-           return;
+
         }
     }
 
     @Override
     public void run() {
-        Servlet servlet = new Servlet();
-        servlet.service(req,res);
-        try {
+
+        Servlet servlet = WebApp.getServlet(req.getUrl());
+        if(servlet == null){
+            this.code = 404;
+        }else{
+            try {
+                servlet.service(req,res);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        try{
             res.pushToClient(code);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         try {
             client.close();
         } catch (IOException e) {
