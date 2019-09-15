@@ -1,8 +1,8 @@
-package server.demo1.servletSample01.servlet;
+package server.demo1.servletXMl.servlet;
 
-import server.demo1.servletSample01.WebApp;
-import server.demo1.servletSample01.utils.Request;
-import server.demo1.servletSample01.utils.Response;
+import server.demo1.servletXMl.WebApp;
+import server.demo1.servletXMl.utils.Request;
+import server.demo1.servletXMl.utils.Response;
 
 import java.io.IOException;
 import java.net.Socket;
